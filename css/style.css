@@ -154,82 +154,143 @@ input {
   box-sizing: border-box;
 }
 
+@keyframes a-hover {
+  to {
+    background-color: grey;
+    color: white;
+  }
+}
 body {
-  font-family: "LOTTERIADDAG";
-  background-color: #e7473c;
   width: 100vw;
-  height: 500vh;
-  display: flex;
-}
-
-.main-header {
-  width: 40%;
-}
-
-header {
-  background-color: #f0f0f0;
-  width: 40%;
   height: 100vh;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  padding: 0px 70px;
+  font-family: "LOTTERIADDAG";
+  color: grey;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 6fr 1fr;
 }
-header h1 {
-  padding-top: 50px;
-  font-size: 55px;
-  color: #e7473c;
-  letter-spacing: 5px;
+body .grid-header {
+  grid-column: 1/-1;
+  grid-row: 1/2;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  border-bottom: solid 1px grey;
 }
-header p {
-  color: #e7473c;
-  margin: 50px 0px;
-  letter-spacing: 2px;
-}
-header div {
+body .grid-header div:nth-child(1) {
+  grid-column: 1/2;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
-header div a {
-  margin: 10px 10px;
-  font-size: 15px;
-  opacity: 0.7;
-  text-decoration: underline;
+body .grid-header div:nth-child(2) {
+  grid-column: 2/3;
 }
-
-.main-content {
-  width: 60%;
+body .grid-header a {
+  grid-column: 3/4;
   display: flex;
-  flex-direction: column;
-  color: #f0f0f0;
-  letter-spacing: 2px;
-  padding: 0px 70px;
+  justify-content: center;
+  align-items: center;
 }
-.main-content .main-content-box {
+body .grid-header a:hover {
+  animation: a-hover 0.5s ease-in-out forwards;
+}
+body .grid-left {
+  grid-column: 1/2;
+  grid-row: 2/-2;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+}
+body .grid-left a {
   display: flex;
-  flex-direction: column;
-  padding: 20vh 0px;
+  justify-content: center;
+  align-items: center;
 }
-.main-content .main-content-box-header {
+body .grid-left a:hover {
+  animation: a-hover 0.5s ease-in-out forwards;
+}
+body .grid-left a:nth-child(1) {
+  grid-row: 1/2;
+  border-bottom: solid 1px grey;
+}
+body .grid-left a:nth-child(2) {
+  grid-row: 2/3;
+  border-bottom: solid 1px grey;
+}
+body .grid-left a:nth-child(3) {
+  grid-row: 3/4;
+  border-bottom: solid 1px grey;
+}
+body .grid-left a:nth-child(4) {
+  grid-row: 4/5;
+  border-bottom: solid 1px grey;
+}
+body .grid-left a:nth-child(5) {
+  grid-row: 5/6;
+}
+body .grid-middle {
+  grid-column: 2/3;
+  grid-row: 1/-1;
+  border-right: solid 1px grey;
+  border-left: solid 1px grey;
+  display: grid;
+  grid-template-rows: 1fr 6fr 1fr;
+}
+body .grid-middle div {
+  grid-row: 2/3;
+  background-color: grey;
+  color: white;
+  font-size: 150px;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
 }
-.main-content .main-content-box-header .main-content-box-header-title {
-  font-size: 40px;
+body .grid-right {
+  grid-column: 3/4;
+  grid-row: 2/-2;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
 }
-.main-content .main-content-box-header .main-content-box-header-author {
-  margin-top: auto;
-  font-size: 15px;
-}
-.main-content .main-content-box-content {
+body .grid-right a {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.main-content .main-content-box-content img {
-  width: 100%;
-  height: 40vh;
-  box-shadow: 0px 2px 10px black;
-  margin: 5vh 0px;
+body .grid-right a:hover {
+  animation: a-hover 0.5s ease-in-out forwards;
+}
+body .grid-right a:nth-child(1) {
+  grid-row: 1/2;
+  border-bottom: solid 1px grey;
+}
+body .grid-right a:nth-child(2) {
+  grid-row: 2/3;
+  border-bottom: solid 1px grey;
+}
+body .grid-right a:nth-child(3) {
+  grid-row: 3/4;
+  border-bottom: solid 1px grey;
+}
+body .grid-right a:nth-child(4) {
+  grid-row: 4/5;
+  border-bottom: solid 1px grey;
+}
+body .grid-right a:nth-child(5) {
+  grid-row: 5/6;
+}
+body .grid-footer {
+  grid-column: 1/-1;
+  grid-row: -1/-2;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  border-top: solid 1px grey;
+}
+body .grid-footer div:nth-child(1) {
+  grid-column: 1/2;
+}
+body .grid-footer div:nth-child(2) {
+  grid-column: 2/3;
+}
+body .grid-footer div:nth-child(3) {
+  grid-column: 3/4;
 }
 
 /*# sourceMappingURL=style.css.map */
