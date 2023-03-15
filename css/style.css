@@ -140,10 +140,6 @@ a {
   color: inherit;
 }
 
-input {
-  font-family: "NeoDunggeunmoPro-Regular";
-}
-
 @keyframes slide-animation {
   from {
     transform: translateX(0);
