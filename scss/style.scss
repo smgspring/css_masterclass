@@ -42,6 +42,7 @@ main {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
+  // look at first-solution commit
   // grid-template-rows: repeat(autofill, minmax(200px, 1fr));
   div:nth-child(1) {
     height: 600px;
