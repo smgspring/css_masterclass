@@ -1,95 +1,173 @@
 @import "reset.scss";
-@font-face {
-  font-family: "LOTTERIADDAG";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/LOTTERIADDAG.woff2")
-    format("woff2");
-  font-weight: normal;
-  font-style: normal;
+@mixin border-box {
+  border: 1px solid black;
 }
-@mixin fix-padding {
-  padding: 0px 70px;
-}
-@mixin letter-space {
-  letter-spacing: 5px;
+@mixin common-padding {
+  padding: 10px 10px;
 }
 
-$red: #e7473c;
-$white: #f0f0f0;
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: "LOTTERIADDAG";
-  background-color: #e7473c;
   width: 100vw;
-  height: 500vh;
-  display: flex;
-}
-.main-header {
-  width: 40%;
-}
-header {
-  background-color: #f0f0f0;
-  width: 40%;
   height: 100vh;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  @include fix-padding();
-  h1 {
-    padding-top: 50px;
-    font-size: 55px;
-    color: $red;
-    @include letter-space();
-  }
-  p {
-    color: $red;
-    margin: 50px 0px;
-    letter-spacing: 2px;
-  }
-  div {
-    display: flex;
-    flex-wrap: wrap;
-    a {
-      margin: 10px 10px;
-      font-size: 15px;
-      opacity: 0.7;
-      text-decoration: underline;
-    }
-  }
+  padding: 10px 10px;
 }
-.main-content {
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  color: $white;
-  letter-spacing: 2px;
-  @include fix-padding();
-  .main-content-box {
-    display: flex;
-    flex-direction: column;
-    padding: 20vh 0px;
-  }
-  .main-content-box-header {
-    display: flex;
-    justify-content: space-between;
-    .main-content-box-header-title {
-      font-size: 40px;
+main {
+  width: 100%;
+  height: 100%;
+  @include border-box();
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  .main-firstgrid {
+    @include border-box();
+    @include common-padding();
+    span:nth-child(2) {
+      display: block;
+      font-size: 30px;
+      margin-top: 50px;
     }
-    .main-content-box-header-author {
-      margin-top: auto;
+    span:nth-child(4) {
+      display: block;
       font-size: 15px;
+      line-height: 20px;
+      opacity: 0.5;
+      margin-top: 80px;
+    }
+    span:nth-child(5) {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      margin-top: 30px;
+    }
+    span:nth-child(6) {
+      display: block;
+      font-size: 15px;
+      opacity: 0.5;
+      margin-top: 10px;
+    }
+
+    ul {
+      margin-top: 20px;
+      li {
+        height: 30px;
+        border: 1px solid black;
+        border-left: none;
+        border-right: none;
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+      }
+      li:first-child {
+        border-top: 2px solid black;
+        background-color: rgb(171, 171, 171);
+      }
+      li:last-child {
+        border-bottom: 2px solid black;
+      }
     }
   }
-  .main-content-box-content {
-    display: flex;
-    flex-direction: column;
-    img {
-      width: 100%;
-      height: 40vh;
-      box-shadow: 0px 2px 10px black;
-      margin: 5vh 0px;
+  .main-secondgrid {
+    display: grid;
+    grid-template-rows: 4fr 1fr;
+    div {
+      @include border-box();
+      @include common-padding();
+    }
+    div:nth-child(1) {
+      span:nth-child(2) {
+        display: block;
+        margin-top: 30px;
+        font-size: 35px;
+        line-height: 40px;
+        margin-bottom: 30px;
+      }
+    }
+    div:nth-child(2) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      span:nth-child(2) {
+        display: block;
+        font-size: 25px;
+      }
+    }
+  }
+  .main-thirdgrid {
+    display: grid;
+    grid-template-rows: 4fr 1fr;
+
+    .main-thirdgrid-up {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      .main-thirdgrid-up-left {
+        @include border-box();
+        background-color: tomato;
+      }
+      .main-thirdgrid-up-right {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 2fr 1fr 1fr;
+        div {
+          @include border-box();
+        }
+        div:nth-child(1) {
+          grid-column: 1 / -1;
+          grid-row: 1 / 2;
+          background-color: antiquewhite;
+        }
+        div:nth-child(2) {
+          grid-column: 1 / -2;
+          grid-row: 2 / 3;
+          background-color: aquamarine;
+        }
+        div:nth-child(3) {
+          grid-column: -2 / -1;
+          grid-row: 2 / 3;
+          background-color: teal;
+        }
+        div:nth-child(4) {
+          grid-column: 1 / 2;
+          grid-row: 3 / 4;
+          background-color: black;
+        }
+        div:nth-child(5) {
+          grid-column: 2 / -1;
+          grid-row: 3 / 4;
+          background-color: blanchedalmond;
+        }
+      }
+    }
+    .main-thirdgrid-down {
+      display: grid;
+      grid-template-columns: 1fr 1fr 4fr;
+      grid-template-rows: 1fr 1fr;
+
+      div {
+        @include border-box();
+      }
+      div:nth-child(1) {
+        grid-column: 1 / 2;
+        grid-row: 1 / -1;
+        background-color: aqua;
+      }
+      div:nth-child(2) {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        background-color: azure;
+      }
+      div:nth-child(3) {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        background-color: lemonchiffon;
+      }
+      div:nth-child(4) {
+        grid-column: 3 / 4;
+        grid-row: 1 / -1;
+        background-color: palevioletred;
+      }
     }
   }
 }
